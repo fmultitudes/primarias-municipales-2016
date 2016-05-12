@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -24,10 +25,10 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/detail', {
+        templateUrl: 'views/detail.html',
+        controller: 'DetailCtrl',
+        controllerAs: 'detail'
       })
       .otherwise({
         redirectTo: '/'
@@ -47,6 +48,16 @@ angular
             Tabletop.init( { 
                 key: '1vJPaGoOkKBiF2eP9RylmRWzh5hYjdapAOjAI3c1B_bE', 
                     callback: function(data, tabletop) {
+                      var id = 0;
+                      data = data.filter(function(d){
+                        if(d.alcalde != ''){
+                          d.id = id++;
+                          d.image = 'http://lorempixel.com/640/480/city';
+                          return true;
+                        }
+                        return false;
+                      });
+
                       that.data = data;
 
                       that.loading = false;

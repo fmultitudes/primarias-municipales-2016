@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name primariasMunicipales2016App.controller:MainCtrl
+ * @name primariasMunicipales2016App.controller:DetailCtrl
  * @description
- * # MainCtrl
+ * # DetailCtrl
  * Controller of the primariasMunicipales2016App
  */
 angular.module('primariasMunicipales2016App')
-  .controller('MainCtrl', function ($scope,TabletopService) {
+  .controller('DetailCtrl', function ($scope,TabletopService) {
   	
   	$scope.munis = [];
 	$scope.loading = true;
